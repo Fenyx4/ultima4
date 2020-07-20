@@ -7,14 +7,14 @@ SHAPES = load_shapes()
 
 
 def town_map(filename_in, filename_out):
-    t_map = open(filename_in).read(1024)
+    t_map = open(filename_in, 'rb').read(1024)
     pixels = []
     for row in range(32):
         for shape_row in range(16):
             for col in range(32):
                 for shape_col in range(16):
                     town_offset = 32 * row + col
-                    pixels.append(SHAPES[ord(t_map[town_offset])][16 * shape_row + shape_col])
+                    pixels.append(SHAPES[t_map[town_offset]][16 * shape_row + shape_col])
     write_png(filename_out, 512, 512, pixels)
 
 
