@@ -23,10 +23,10 @@ EGA2RGB = [
 
 def rle(filename_in, filename_out, w, h):
     pixels = []
-    bytes = open(filename_in).read()
+    bytes = open(filename_in, 'rb').read()
 
     state = 0
-    for d in map(ord, bytes):
+    for d in bytes:
         if state == 0:
             if d == 0x02:
                 state = 1
