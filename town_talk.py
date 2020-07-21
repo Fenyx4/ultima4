@@ -16,7 +16,7 @@ NO  : {9}
 """
 
 if len(sys.argv) != 2:
-    print "usage: {} <TLK FILE>".format(sys.argv[0])
+    print("usage: {} <TLK FILE>".format(sys.argv[0]))
 else:
     with open(sys.argv[1]) as talk_file:
         talk_data = talk_file.read()
@@ -31,7 +31,7 @@ else:
                 slot[i] = char_data[start:start + length].replace("\n", " ")
                 start += length + 1
 
-            print "\ncharacter %d" % char
-            print ord(char_data[0]), ord(char_data[1]), ord(char_data[2])
+            print("\ncharacter %d" % char)
+            print(ord(char_data[0]), ord(char_data[1]), ord(char_data[2]))
 
-            print TALK_TEMPLATE.format(*slot)
+            print(TALK_TEMPLATE.format(*slot))
